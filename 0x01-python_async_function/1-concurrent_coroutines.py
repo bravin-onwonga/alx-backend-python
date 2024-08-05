@@ -11,4 +11,12 @@ async def wait_n(n: int, max_delay: int) -> list:
     for _ in range(n):
         res = await wait_random(max_delay)
         my_list.append(res)
-    return sorted(my_list)
+    new_lst = []
+    len_lst = len(my_list)
+    i = 0
+    while i < len_lst:
+        val = min(my_list)
+        new_lst.append(val)
+        my_list.remove(val)
+        i += 1
+    return new_lst
